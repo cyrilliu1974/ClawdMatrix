@@ -82,7 +82,7 @@ chmod +x install-matrix.sh
 
 
 
-For peak performance, it is highly recommended to separately install the \*\*\[D4kooo/Openclaw-Token-memory-optimizer](https://www.google.com/search?q=https://github.com/D4kooo/Openclaw-Token-memory-optimizer)\*\*.
+For peak performance, it is highly recommended to separately install the \*\*\[D4kooo/Openclaw-Token-memory-optimizer](https://github.com/D4kooo/Openclaw-Token-memory-optimizer)\*\*.
 
 
 
