@@ -60,6 +60,7 @@
   },
   "global_defaults": [
     "Context_Audit_&_Triage",
+    "Intent_Triage_Protocol",
     "State_Space_Router",
     "Safety_Brake_Mechanism"
   ]
