@@ -141,42 +141,6 @@ function buildDocsSection(params: { docsPath?: string; isMinimal: boolean; readT
   ];
 }
 
-/**
- * Helper to select skills based on the IntentContext.
- * Implements the "Skill Matrix Retrieval" logic.
- */
-function selectSkillsForContext(library: any, context: IntentContext): SkillDefinition[] {
-  const skills: SkillDefinition[] = [];
-
-  const triageSkill = SkillsLoader.findSkill(library, 'Intent_Triage_Protocol');
-  if (triageSkill) {
-    skills.push(triageSkill);
-  } else {
-    const coreSkill = SkillsLoader.findSkill(library, 'Context_Audit_&_Triage');
-    if (coreSkill) skills.push(coreSkill);
-  }
-
-  // Domain specific routing
-  if (context.domain === 'Finance') {
-    const financeSkill = SkillsLoader.findSkill(library, 'Financial_Risk_&_Deployment');
-    if (financeSkill) skills.push(financeSkill);
-  } else if (context.domain === 'Coding') {
-    // "Workflow_to_Code_Mapping" covers logic-to-code transformation
-    const codingSkill = SkillsLoader.findSkill(library, 'Workflow_to_Code_Mapping');
-    if (codingSkill) skills.push(codingSkill);
-  } else if (context.domain === 'System_Ops') {
-    const opsRouter = SkillsLoader.findSkill(library, 'Token_Memory_Optimizer_Router');
-    if (opsRouter) skills.push(opsRouter);
-  }
-
-  // Fallback / General skills
-  if (skills.length <= 1) {
-    const generalSkill = SkillsLoader.findSkill(library, 'General_Reasoning');
-    if (generalSkill) skills.push(generalSkill);
-  }
-
-  return skills;
-}
 
 /**
  * Constructs the Matrix-injected prompt sections.
@@ -269,6 +233,7 @@ export async function buildAgentSystemPrompt(params: {
   userPrompt?: string;
 }): Promise<string> {
   // [NEW] 1. Initialize the Knowledge Base (Data Layer)
+  // (library is still loaded for fallback/internal use if needed, but primary routing is via domain-map)
   const library = await SkillsLoader.loadLibrary();
 
   // [NEW] 2. Phase 1: Input Analysis & Triangulation (Cognitive Layer)
@@ -276,8 +241,8 @@ export async function buildAgentSystemPrompt(params: {
   const userRawText = params.userPrompt || "Hello";
   const context: IntentContext = await Triangulator.analyze(userRawText);
 
-  // [NEW] 3. Phase 2: Skill Selection (Matrix Retrieval)
-  const selectedSkills = selectSkillsForContext(library, context);
+  // [NEW] 3. Phase 2: Skill Selection (Matrix Retrieval) - Now Dynamic
+  const selectedSkills = await SkillsLoader.getSkillsForDomain(context.domain);
 
   // [NEW] 4. Phase 3: Logic Injection (Compiler Layer)
   let instantiatedSkills = selectedSkills.map(skill =>

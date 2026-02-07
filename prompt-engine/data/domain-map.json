@@ -1,0 +1,66 @@
+{
+  "domains": {
+    "Finance": {
+      "triggers": ["stock", "price", "market", "cap", "pe ratio", "dividend", "etf", "crypto", "bitcoin", "bull", "bear", "forecast"],
+      "skills": [
+        "Financial_Risk_&_Deployment",
+        "Opportunity_Calculus",
+        "Tree_of_Thoughts_Protocol"
+      ]
+    },
+    "Legal": {
+      "triggers": ["plaintiff", "defendant", "judgment", "court", "lawsuit", "patent", "intellectual property", "contract", "clause", "sue"],
+      "skills": [
+        "Legal_Forensics_&_RAG",
+        "Intent_Logic_Extraction",
+        "Constraint_Audit_Loop"
+      ]
+    },
+    "Coding": {
+      "triggers": ["function", "const", "import", "class", "=>", "return", "npm", "pip", "git", "docker", "sudo", "api", "bug", "fix", "refactor"],
+      "skills": [
+        "Workflow_to_Code_Mapping",
+        "Schema_Enforcer",
+        "Systemic_Context_Modeling"
+      ]
+    },
+    "System_Ops": {
+      "triggers": ["token", "memory", "lag", "latency", "bloat", "restart", "deploy", "server", "linux", "bash", "shell"],
+      "skills": [
+        "Token_Memory_Optimizer_Router",
+        "Systemic_Context_Modeling",
+        "Fault_Tolerant_Recovery"
+      ]
+    },
+    "Creative_Writing": {
+      "triggers": ["story", "plot", "character", "narrative", "chapter", "scene", "novel", "fiction", "write a story"],
+      "skills": [
+        "Deep_Narrative_Reconstruction",
+        "Semantic_Amplifier",
+        "Concept_Materializer",
+        "Dynamic_Persona_Modulator"
+      ]
+    },
+    "Occult": {
+      "triggers": ["tarot", "horoscope", "zodiac", "astrology", "fortune", "spirit", "manifest", "mercury retrograde", "divination"],
+      "skills": [
+        "Soul_Prototype_Architecture",
+        "Ritual_Randomness_Engine",
+        "Deep_Logic_Extraction"
+      ]
+    },
+    "Gaming": {
+      "triggers": ["rpg", "npc", "dps", "tank", "healer", "raid", "dungeon", "speedrun", "meta", "nerf", "buff", "game design"],
+      "skills": [
+        "Combat_Balance_Matrix",
+        "Economic_Ecosystem_Design",
+        "Meta_Game_Evolution"
+      ]
+    }
+  },
+  "global_defaults": [
+    "Context_Audit_&_Triage",
+    "State_Space_Router",
+    "Safety_Brake_Mechanism"
+  ]
+}

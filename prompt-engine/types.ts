@@ -47,6 +47,7 @@ export interface IntentContext {
 export interface SkillDefinition {
   skill_name: string;
   description: string;
+  associated_domains?: string[];
   variants?: SkillVariant[];
   generalized_instruction_template?: string; 
 }
