@@ -2,7 +2,7 @@
 
 
 
-\*\*ClawdMatrix\*\* is a cognitive architecture upgrade designed for OpenClaw agents. Moving beyond static system prompts, it introduces a five-stage cognitive pipeline—including Requirement Triangulation and Dynamic Skill Injection—to maximize token efficiency and ensure precise skill invocation.
+\*\*ClawdMatrix\*\* is a cognitive architecture upgrade designed for \*\*\[OpenClaw agents] ( https://github.com/openclaw/openclaw ) \*\*. Moving beyond static system prompts, it introduces a five-stage cognitive pipeline—including Requirement Triangulation and Dynamic Skill Injection—to maximize token efficiency and ensure precise skill invocation.
 
 
 
